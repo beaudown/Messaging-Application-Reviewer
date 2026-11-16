@@ -34,7 +34,7 @@ jobs:
           grep "gradle-9.8.2" android/gradle/wrapper/gradle-wrapper.properties
       - name: Synchronize Capacitor assets
         run: npx cap sync android
-      - name: Verify toolchain
+      - name: Install native Android SMS importer\n        run: node scripts/install-android-import.cjs\n      - name: Verify toolchain
         run: |
           java -version
           node --version

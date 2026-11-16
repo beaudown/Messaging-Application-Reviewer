@@ -26,3 +26,10 @@ Apple Shortcuts cannot insert historical SMS, MMS, iMessage or RCS records into 
 - [ ] PWA reimports XML and retains message counts and annotations
 - [ ] Large attachment handling and iCloud storage tested
 - [ ] Android import from iCloud-transferred XML verified
+
+## Backup naming and transfer destinations
+Before exporting, enter a **Backup name / title**. The PWA uses it for the XML filename and embeds it as the workspace title; invalid filename characters are replaced. On import, the title is restored. iCloud Drive is the recommended archive destination, **not a dependency**.
+
+Other transfer options include local Files, direct sharing through a compatible app, USB transfer via a computer, or another storage provider. AirDrop does not directly transfer to Android; use a compatible intermediary or another transfer method. No Apple ID is required on the Android destination. The recipient selects the XML file in the reviewer.
+
+**Verification still required:** Test named backup export, Share Sheet save, byte-for-byte transfer, XML reimport, message and evidence counts, media integrity, and Android device behavior. A successful GitHub commit is not a device test.

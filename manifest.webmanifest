@@ -1,0 +1,18 @@
+{
+  "name": "Messaging Application Reviewer",
+  "short_name": "Message Reviewer",
+  "description": "Private, local-first conversation statistics and evidence review",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0c1320",
+  "theme_color": "#101827",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

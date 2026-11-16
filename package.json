@@ -4,14 +4,16 @@
   "private": true,
   "description": "Privacy-focused offline-first conversation review PWA and Android shell",
   "scripts": {
-    "android:add": "npm run stage:web && npx cap add android",
-    "android:sync": "npm run stage:web && npx cap sync android",
+    "android:add": "npm run build:web && npx cap add android",
+    "android:sync": "npm run build:web && npx cap sync android",
     "android:open": "npx cap open android",
-    "stage:web": "node scripts/stage-web.mjs"
+    "stage:web": "node scripts/stage-web.mjs",
+    "build:web": "node scripts/build-web.cjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.4.0",
-    "@capacitor/core": "^7.4.0"
+    "@capacitor/core": "^7.4.0",
+    "sql.js": "1.13.0"
   },
   "devDependencies": {
     "@capacitor/cli": "^7.4.0"

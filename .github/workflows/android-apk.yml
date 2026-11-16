@@ -35,9 +35,14 @@ jobs:
           java -version
           node --version
           npm --version
+          javac -version
+          test "$(javac -version 2>&1 | awk '{print $2}' | cut -d. -f1)" -ge 21
       - name: Build debug APK
         working-directory: android
-        run: chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+        run: |
+          chmod +x gradlew
+          ./gradlew --version
+          ./gradlew assembleDebug --no-daemon --warning-mode all
       - name: Upload installable debug APK
         uses: actions/upload-artifact@v6
         with:

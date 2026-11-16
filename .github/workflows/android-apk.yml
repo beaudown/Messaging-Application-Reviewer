@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: '23'
+          java-version: '25'
       - uses: android-actions/setup-android@v4
         with:
           log-accepted-android-sdk-licenses: 'false'
@@ -28,6 +28,10 @@ jobs:
         run: npm run build:web
       - name: Generate Android project
         run: npx cap add android
+      - name: Verify generated Android template
+        run: |
+          grep -R "com.android.tools.build:gradle:9.4.1" android/build.gradle
+          grep "gradle-9.8.2" android/gradle/wrapper/gradle-wrapper.properties
       - name: Synchronize Capacitor assets
         run: npx cap sync android
       - name: Verify toolchain
@@ -36,7 +40,7 @@ jobs:
           node --version
           npm --version
           javac -version
-          test "$(javac -version 2>&1 | awk '{print $2}' | cut -d. -f1)" -ge 23
+          test "$(javac -version 2>&1 | awk '{print $2}' | cut -d. -f1)" -ge 25
       - name: Build debug APK
         working-directory: android
         run: |

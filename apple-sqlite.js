@@ -5,9 +5,9 @@ let enginePromise;
 async function engine(){
  if(!enginePromise)enginePromise=(async()=>{
   if(typeof window.initSqlJs!=="function"){
-   await new Promise((resolve,reject)=>{const script=document.createElement("script");script.src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-wasm.js";script.onload=resolve;script.onerror=()=>reject(Error("SQLite engine unavailable. Connect once to load the WASM runtime."));document.head.append(script)});
+   await new Promise((resolve,reject)=>{const script=document.createElement("script");script.src="./sql-wasm.js";script.onload=resolve;script.onerror=()=>reject(Error("SQLite engine unavailable. Connect once to load the WASM runtime."));document.head.append(script)});
   }
-  return window.initSqlJs({locateFile:f=>"https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/"+f});
+  return window.initSqlJs({locateFile:f=>""./"+f});
  })().catch(e=>{enginePromise=null;throw e});
  return enginePromise;
 }

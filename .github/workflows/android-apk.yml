@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '23'
       - uses: android-actions/setup-android@v4
         with:
           log-accepted-android-sdk-licenses: 'false'
@@ -36,7 +36,7 @@ jobs:
           node --version
           npm --version
           javac -version
-          test "$(javac -version 2>&1 | awk '{print $2}' | cut -d. -f1)" -ge 21
+          test "$(javac -version 2>&1 | awk '{print $2}' | cut -d. -f1)" -ge 23
       - name: Build debug APK
         working-directory: android
         run: |

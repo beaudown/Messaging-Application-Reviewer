@@ -1,7 +1,7 @@
 {
   "appId": "com.beaudown.messagingreviewer",
   "appName": "Messaging Application Reviewer",
-  "webDir": ".",
+  "webDir": "www",
   "server": {
     "androidScheme": "https"
   }
